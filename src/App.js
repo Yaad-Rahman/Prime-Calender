@@ -1,6 +1,6 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import {dhaka, rajshahi,rangpur,chittagong,sylhet,mymensingh,barisal,khulna} from './data';
+import {dhaka, rajshahi,rangpur,chittagong,sylhet,mymensingh,barisal,khulna, manik} from './data';
 import TimeTable from './table';
 import './sample.css';
 
@@ -169,6 +169,8 @@ class App extends React.Component {
         return sylhet[date].start;
       case '7':
         return chittagong[date].start;
+      case '8':
+        return manik[date].start;
       default:
         return dhaka[date].start;
     }
@@ -192,6 +194,8 @@ class App extends React.Component {
         return sylhet[date].end;
       case '7':
         return chittagong[date].end;
+      case '8': 
+        return manik[date].end;
       default:
         return dhaka[date].end;
     }
@@ -213,7 +217,7 @@ class App extends React.Component {
         <h1 className={classes.subHeading}>আপনার জেলা নির্বাচন করুন</h1>
         <select id="division" className={classes.selectList} onChange={this.handleChange}>
         <option value="0">ঢাকা</option>
-                                                                    <option value="0">মানিকগঞ্জ</option>
+                                                                    <option value="8">মানিকগঞ্জ</option>
                                                                     <option value="2">বগুড়া</option>
                                                                     <option value="2">সিরাজগঞ্জ
 </option>

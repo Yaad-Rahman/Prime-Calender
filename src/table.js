@@ -308,6 +308,43 @@ const mymensingh = [
 ]
 
 
+function manikTimes(ramadan,date,day,seheri,iftar){
+    return {ramadan, date, day, seheri, iftar};
+}
+const manik = [
+    manikTimes('১', '২৫ এপ্রিল', 'শনিবার' ,    '৪.১০', '৬.২৬'),
+    manikTimes('২', '২৬ এপ্রিল', 'রবিবার' ,    '৪.০৯', '৬.২৭'),
+    manikTimes('৩', '২৭ এপ্রিল', 'সোমবার',    '৪.০৯', '৬.২৭'),
+    manikTimes('৪', '২৮ এপ্রিল', 'মঙ্গলবার' ,   '৪.০৮', '৬.২৮'),
+    manikTimes('৫', '২৯ এপ্রিল', 'বুধবার' ,     '৪.০৭', '৬.২৮'),
+    manikTimes('৬', '৩০ এপ্রিল', 'বৃহস্পতিবার',  '৪.০৬', '৬.২৯'),
+    manikTimes('৭', '০১ মে', 'শুক্রবার' ,      '৪.০৫', '৬.২৯'),
+    manikTimes('৮', '০২ মে', 'শনিবার' ,       '৪.০৪', '৬.৩০'),
+    manikTimes('৯', '০৩ মে', 'রবিবার' ,       '৪.০৩', '৬.৩০'),
+    manikTimes('১০', '০৪ মে', 'সোমবার' ,      '৪.০২', '৬.৩১'),
+    manikTimes('১১', '০৫ মে', 'মঙ্গলবার' ,     '৪.০১', '৬.৩১'),
+    manikTimes('১২', '০৬ মে', 'বুধবার' ,       '৪.০১', '৬.৩২'),
+    manikTimes('১৩', '০৭ মে', 'বৃহস্পতিবার' ,    '৪.০০', '৬.৩২'),
+    manikTimes('১৪', '০৮ মে', 'শুক্রবার' ,      '৪.০০', '৬.৩২'),
+    manikTimes('১৫', '০৯ মে', 'শনিবার' ,       '৩.৫৮', '৬.৩৩'),
+    manikTimes('১৬', '১০ মে', 'রবিবার' ,       '৩.৫৭', '৬.৩৩'),
+    manikTimes('১৭', '১১ মে', 'সোমবার' ,       '৩.৫৭', '৬.৩৪'),
+    manikTimes('১৮', '১২ মে', 'মঙ্গলবার' ,       '৩.৫৬', '৬.৩৪'),
+    manikTimes('১৯', '১৩ মে', 'বুধবার' ,        '৩.৫৫', '৬.৩৫'),
+    manikTimes('২০', '১৪ মে', 'বৃহস্পতিবার' ,     '৩.৫৫', '৬.৩৫'),
+    manikTimes('২১', '১৫ মে', 'শুক্রবার' ,       '৩.৫৪', '৬.৩৬'),
+    manikTimes('২২', '১৬ মে', 'শনিবার' ,       '৩.৫৩', '৬.৩৬'),
+    manikTimes('২৩', '১৭ মে', 'রবিবার' ,       '৩.৫৩', '৬.৩৭'),
+    manikTimes('২৪', '১৮ মে', 'সোমবার' ,      '৩.৫২', '৬.৩৭'),
+    manikTimes('২৫', '১৯ মে', 'মঙ্গলবার' ,      '৩.৫২', '৬.৩৮'),
+    manikTimes('২৬', '২০ মে', 'বুধবার' ,       '৩.৫১', '৬.৩৮'),
+    manikTimes('২৭', '২১ মে', 'বৃহস্পতিবার' ,    '৩.৫০', '৬.৩৯'),
+    manikTimes('২৮', '২২ মে', 'শুক্রবার' ,      '৩.৫০', '৬.৩৯'),
+    manikTimes('২৯', '২৩ মে', 'শনিবার' ,      '৩.৪৯', '৬.৪০'),
+    manikTimes('৩০', '২৪ মে', 'রবিবার' ,       '৩.৪৯', '৬.৪০'),
+]
+
+
 const styles = theme => ({
 tableHead: {
     marginLeft: 'auto',
@@ -322,7 +359,15 @@ tableHead: {
 },
 head: {
     backgroundColor: '##4cae4c',
-    color: 'white'
+    color: 'white',
+    "& th": {
+        backgroundColor: '#4cae4c', 
+        color: 'white',
+        fontSize: '1.5em',
+        ['@media (max-width:480px)']: {
+            fontSize: '1em'
+          }
+    }
 },
 down: {
     textDecoration: 'none',
@@ -361,11 +406,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {dhaka.map((dhaka) => (
                             <TableRow key={dhaka.ramadan}>
-                            <TableCell>{dhaka.ramadan}</TableCell>
-                            <TableCell>{dhaka.date} </TableCell>
-                            <TableCell>{dhaka.day} </TableCell>
-                            <TableCell>{dhaka.seheri}  </TableCell>
-                            <TableCell>{dhaka.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{dhaka.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{dhaka.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{dhaka.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{dhaka.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{dhaka.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -378,11 +423,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {barisal.map((barisal) => (
                             <TableRow key={barisal.ramadan}>
-                            <TableCell>{barisal.ramadan}</TableCell>
-                            <TableCell>{barisal.date} </TableCell>
-                            <TableCell>{barisal.day} </TableCell>
-                            <TableCell>{barisal.seheri}  </TableCell>
-                            <TableCell>{barisal.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{barisal.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{barisal.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{barisal.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{barisal.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{barisal.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -395,11 +440,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {khulna.map((khulna) => (
                             <TableRow key={khulna.ramadan}>
-                            <TableCell>{khulna.ramadan}</TableCell>
-                            <TableCell>{khulna.date} </TableCell>
-                            <TableCell>{khulna.day} </TableCell>
-                            <TableCell>{khulna.seheri}  </TableCell>
-                            <TableCell>{khulna.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{khulna.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{khulna.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{khulna.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{khulna.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{khulna.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -412,11 +457,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {sylhet.map((sylhet) => (
                             <TableRow key={sylhet.ramadan}>
-                            <TableCell>{sylhet.ramadan}</TableCell>
-                            <TableCell>{sylhet.date} </TableCell>
-                            <TableCell>{sylhet.day} </TableCell>
-                            <TableCell>{sylhet.seheri}  </TableCell>
-                            <TableCell>{sylhet.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{sylhet.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{sylhet.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{sylhet.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{sylhet.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{sylhet.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -429,11 +474,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {rajshahi.map((rajshahi) => (
                             <TableRow key={rajshahi.ramadan}>
-                            <TableCell>{rajshahi.ramadan}</TableCell>
-                            <TableCell>{rajshahi.date} </TableCell>
-                            <TableCell>{rajshahi.day} </TableCell>
-                            <TableCell>{rajshahi.seheri}  </TableCell>
-                            <TableCell>{rajshahi.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{rajshahi.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{rajshahi.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{rajshahi.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{rajshahi.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{rajshahi.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -446,11 +491,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {rangpur.map((rangpur) => (
                             <TableRow key={rangpur.ramadan}>
-                            <TableCell>{rangpur.ramadan}</TableCell>
-                            <TableCell>{rangpur.date} </TableCell>
-                            <TableCell>{rangpur.day} </TableCell>
-                            <TableCell>{rangpur.seheri}  </TableCell>
-                            <TableCell>{rangpur.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{rangpur.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{rangpur.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{rangpur.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{rangpur.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{rangpur.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -463,11 +508,11 @@ class TimeTable extends React.Component {
             <TableBody>
                         {mymensingh.map((mymensingh) => (
                             <TableRow key={mymensingh.ramadan}>
-                            <TableCell>{mymensingh.ramadan}</TableCell>
-                            <TableCell>{mymensingh.date} </TableCell>
-                            <TableCell>{mymensingh.day} </TableCell>
-                            <TableCell>{mymensingh.seheri}  </TableCell>
-                            <TableCell>{mymensingh.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{mymensingh.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{mymensingh.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{mymensingh.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{mymensingh.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{mymensingh.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -480,11 +525,28 @@ class TimeTable extends React.Component {
             <TableBody>
                         {chittagong.map((chittagong) => (
                             <TableRow key={chittagong.ramadan}>
-                            <TableCell>{chittagong.ramadan}</TableCell>
-                            <TableCell>{chittagong.date} </TableCell>
-                            <TableCell>{chittagong.day} </TableCell>
-                            <TableCell>{chittagong.seheri}  </TableCell>
-                            <TableCell>{chittagong.iftar}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{chittagong.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{chittagong.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{chittagong.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{chittagong.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{chittagong.iftar}  </TableCell>
+                        </TableRow>
+                        ))}
+                        
+                    </TableBody>
+        )
+    }
+
+    renderManik() {
+        return (
+            <TableBody>
+                        {manik.map((manik) => (
+                            <TableRow key={manik.ramadan}>
+                            <TableCell style={{fontSize: '1.2em'}}>{manik.ramadan}</TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{manik.date} </TableCell>
+                            <TableCell style={{fontSize: '1.2em'}}>{manik.day} </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{manik.seheri}  </TableCell>
+                            <TableCell style={{fontSize: '1.2em', textAlign:'center'}}>{manik.iftar}  </TableCell>
                         </TableRow>
                         ))}
                         
@@ -510,6 +572,8 @@ class TimeTable extends React.Component {
                 return this.renderSylhet();
             case '7':
                 return this.renderChittagong();
+            case '8':
+                return this.renderManik();
             default:
                 return this.renderDhaka();
         }
@@ -523,11 +587,11 @@ class TimeTable extends React.Component {
                 <Table  stickyHeader={true}>
                     <TableHead >
                         <TableRow className={classes.head}>
-                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>রমজান</TableCell>
-                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>তারিখ</TableCell>
-                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>বার</TableCell>
-                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>সাহিরির শেষ সময়</TableCell>
-                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>ইফতারের সময়</TableCell>
+                            <TableCell >রমজান</TableCell>
+                            <TableCell >তারিখ</TableCell>
+                            <TableCell >বার</TableCell>
+                            <TableCell >সাহিরির শেষ সময়</TableCell>
+                            <TableCell >ইফতারের সময়</TableCell>
                         </TableRow>
                     </TableHead>
                     {this.conditional()}
