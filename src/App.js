@@ -402,8 +402,8 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody >
-            <td style={{ textAlign: 'center', fontSize: 40, borderRight: '1px solid grey', marginRight: 10, color: 'white' }}>{this.seheriTimes()}</td>
-            <td style={{ textAlign: 'center', fontSize: 40, color: 'white' }}>{this.iftarTimes()}</td>
+            <td style={{ textAlign: 'center', fontSize: 40, color: 'black', backgroundColor: 'white' }}>{this.seheriTimes()}</td>
+            <td style={{ textAlign: 'center', fontSize: 40, color: 'black',backgroundColor: 'white' }}>{this.iftarTimes()}</td>
           </tbody>
         </table>
         <button className={classes.btn} onClick={this.renderTable}> জেলার সম্পূর্ণ সময়সূচী দেখতে ক্লিক করুন</button>
