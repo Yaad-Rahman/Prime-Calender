@@ -5,6 +5,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import {withStyles} from '@material-ui/core/styles';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import PrintIcon from '@material-ui/icons/Print';
 
 
 
@@ -313,11 +315,35 @@ tableHead: {
     maxHeight: 600,
     overflowY: 'scroll',
     width: '80%',
-    marginTop: 30
+    marginTop: 30,
+    ['@media (max-width:480px)']: {
+        width: '100%'
+      }
 },
 head: {
     backgroundColor: '##4cae4c',
     color: 'white'
+},
+down: {
+    textDecoration: 'none',
+backgroundColor: '#4cae4c',
+color: 'white',
+textAlign: 'center',
+paddingTop: 20
+
+},
+print: {
+    textDecoration: 'none',
+backgroundColor: '#4cae4c',
+color: 'white',
+textAlign: 'center',
+paddingTop: 20,
+marginLeft: 20
+},
+downloadHeading: {
+    ['@media (max-width:480px)']: {
+        fontSize: '1.5em',
+      }
 }
 
 
@@ -497,17 +523,18 @@ class TimeTable extends React.Component {
                 <Table  stickyHeader={true}>
                     <TableHead >
                         <TableRow className={classes.head}>
-                            <TableCell>রমজান</TableCell>
-                            <TableCell>তারিখ</TableCell>
-                            <TableCell>বার</TableCell>
-                            <TableCell>সাহিরির শেষ সময়</TableCell>
-                            <TableCell>ইফতারের সময়</TableCell>
+                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>রমজান</TableCell>
+                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>তারিখ</TableCell>
+                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>বার</TableCell>
+                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>সাহিরির শেষ সময়</TableCell>
+                            <TableCell style={{backgroundColor: '#4cae4c', color: 'white'}}>ইফতারের সময়</TableCell>
                         </TableRow>
                     </TableHead>
                     {this.conditional()}
                 </Table>
-                <h1>সম্পূর্ণ ক্যালেন্ডার ডাউনলোড করুন</h1>
-                <a href="calender.jpeg" download>Download</a>
+                <h1 className={classes.downloadHeading}>সম্পূর্ণ ক্যালেন্ডার ডাউনলোড করুন</h1>
+                <a href="calender.jpeg" download className={classes.down}><GetAppIcon style={{fontSize: '2rem'}} /></a>
+                <a href="calender.jpeg"  className={classes.print}><PrintIcon style={{fontSize: '2rem'}} /></a>
 
                 
                     
